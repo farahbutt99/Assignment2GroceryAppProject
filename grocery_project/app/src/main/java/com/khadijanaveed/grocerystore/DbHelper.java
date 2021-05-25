@@ -148,15 +148,10 @@ public class DbHelper extends SQLiteOpenHelper
         DB.close();
         return myList;
     }
+    // Add new product to database Admin's function
     public String addProduct(ProductModel productModel)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-
-   //    db.execSQL("DROP TABLE IF EXISTS " + TBL_PRODUCTS);
-//        db.execSQL("DROP TABLE IF EXISTS " + TBL_PRODUCT);
-
-//        String query_tbl2 ="CREATE TABLE " + TBL_PRODUCTS+ "(" + Prod_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + Prod_Name + " Text,"+ Prod_Category + " Text," + Prod_Qty+ " Real,"+ Prod_Price+ " Real," + Prod_Img+" BLOB) ";
-//        db.execSQL(query_tbl2);
 
         Bitmap image=productModel.getProduct_Image();
         byteArrayOutputStream = new ByteArrayOutputStream();
@@ -164,7 +159,6 @@ public class DbHelper extends SQLiteOpenHelper
         imageinbytes = byteArrayOutputStream.toByteArray();
 
         ContentValues cv =new ContentValues();
-        //cv.put(Prod_ID,null);
         cv.put(Prod_Name,productModel.getProduct_Name());
         cv.put(Prod_Category,productModel.getProduct_Category());
         cv.put(Prod_Qty,productModel.getProduct_Qty());
@@ -173,17 +167,9 @@ public class DbHelper extends SQLiteOpenHelper
 
         long result = db.insert(TBL_PRODUCTS,null,cv);
         db.close();
-        if(result==-1)
-        {
-            return "Product not added";
-        }
-        else
-        {
-            return "product added";
-        }
-        //db.close();
 
-        //return "Product not added";
+        if(result==-1) { return "Product not added"; }
+        else { return "product added"; }
     }
 
     public String deleteProduct(String prod_Name) {
