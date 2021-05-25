@@ -172,19 +172,12 @@ public class DbHelper extends SQLiteOpenHelper
         else { return "product added"; }
     }
 
+    //Delete Product by its name Admins Function
     public String deleteProduct(String prod_Name) {
         SQLiteDatabase db = this.getWritableDatabase();
         int result=db.delete(TBL_PRODUCTS,"Name = ?",new String[] {prod_Name});
         db.close();
-        if(result==0)
-        {
-            return "Product not Deleted";
-        }
-        else
-        {
-            return "Product Deleted";
-        }
-
+        if(result==0) { return "Product not Deleted"; }
+        else { return "Product Deleted"; }
     }
-
 }
