@@ -64,7 +64,8 @@ public class DbHelper extends SQLiteOpenHelper
             onCreate(db);
         }
     }
-    //ADD new User to database SIGNUP
+
+   //ADD new User to database SIGNUP
     public String addUser(UserModel user)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -83,6 +84,7 @@ public class DbHelper extends SQLiteOpenHelper
         else
             return "Signup Scuccesfull";
     }
+    
     //Get COMPLETE record of USER
     public UserModel getUser(String userName, String passwd)
     {
