@@ -113,26 +113,29 @@ public class DbHelper extends SQLiteOpenHelper
                 }
             }while (cursor.moveToNext());
         }
-        
+
         cursor.close();
         db.close();
         return user;
     }
 
+    //Get username,email,mobile no of all users
     public ArrayList<UserModel> getAllRecords()
     {
         ArrayList<UserModel> myList= new ArrayList<UserModel>();
+
         String query = "SELECT "+USER_EMAIL+","+USER_NAME+","+USER_MobileNo+","+USER_Type+" FROM "+TBL_USERS;
         SQLiteDatabase DB = this.getReadableDatabase();
+
         Cursor cursor = DB.rawQuery(query,null);
         if(cursor.moveToFirst())
         {
             do{
-                // int custId= cursor.getInt(4);
                 String usrMail= cursor.getString(0);
                 String userName= cursor.getString(1);
                 int usrPhone= cursor.getInt(2);
                 String userType= cursor.getString(3);
+
                 if(userType.equals("Customer"))
                 {
                     UserModel user = new UserModel(userName,usrMail,usrPhone);
@@ -140,6 +143,7 @@ public class DbHelper extends SQLiteOpenHelper
                 }
             }while(cursor.moveToNext());
         }
+
         cursor.close();
         DB.close();
         return myList;
