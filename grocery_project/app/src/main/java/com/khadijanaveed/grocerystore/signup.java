@@ -33,7 +33,7 @@ public class signup extends AppCompatActivity {
 //                t2.getText().toString(),
 //                t3.getText().toString(),
 //                Long.parseLong(t4.getText().toString()), "Admin");
-        user=new UserModel(
+        user=new UserModel(null,
                 t1.getText().toString(),
                 t2.getText().toString(),
                 t3.getText().toString(),
