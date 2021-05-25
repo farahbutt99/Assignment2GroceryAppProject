@@ -26,7 +26,6 @@ public class DbHelper extends SQLiteOpenHelper
     public static final String USER_Type = "userType";
 
     public static final String TBL_PRODUCTS = "products_tbl";
-    public static final String TBL_PRODUCT = "product_tbl";
 
     public static final String Prod_ID = "Id";
     public static final String Prod_Name = "Name";
@@ -48,15 +47,12 @@ public class DbHelper extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //String query_tbl1 ="create table tbl_users (userId integer primary key autoincrement, email text,userName text, password text,mobileNo Long)";
 
         String query_tbl1 ="CREATE TABLE " + TBL_USERS+ "(" + USER_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + USER_EMAIL + " Text," + USER_NAME+ " Text,"+ USER_PASWD+ " Text," + USER_MobileNo+ " Long,"+ USER_Type+" Text) ";
         db.execSQL(query_tbl1);
 
         String query_tbl2 ="CREATE TABLE " + TBL_PRODUCTS+ "(" + Prod_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + Prod_Name + " Text,"+ Prod_Category + " Text," + Prod_Qty+ " Real,"+ Prod_Price+ " Real," + Prod_Img+" BLOB) ";
         db.execSQL(query_tbl2);
-
-      //  String query_tbl2 ="create table tbl_items (productId integer primary key autoincrement,productName text, productQty integer)";
     }
 
     @Override
@@ -64,6 +60,7 @@ public class DbHelper extends SQLiteOpenHelper
         if (newVersion > oldVersion) {
 
             db.execSQL("DROP TABLE IF EXISTS " + TBL_USERS);
+            db.execSQL("DROP TABLE IF EXISTS " + TBL_PRODUCTS);
             onCreate(db);
         }
     }
@@ -72,16 +69,13 @@ public class DbHelper extends SQLiteOpenHelper
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
-//        db.execSQL("DROP TABLE IF EXISTS " + TBL_USERS);
-//        String query_tbl1 ="CREATE TABLE " + TBL_USERS+ "(" + USER_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + USER_EMAIL + " Text," + USER_NAME+ " Text,"+ USER_PASWD+ " Text," + USER_MobileNo+ " Long,"+ USER_Type+" Text) ";
-//        db.execSQL(query_tbl1);
-
         ContentValues cv = new ContentValues();
         cv.put(USER_EMAIL, user.getEmailID());
         cv.put(USER_NAME,user.getUserName());
         cv.put(USER_PASWD,user.getPaswd());
         cv.put(USER_MobileNo,user.getMobileNo());
         cv.put(USER_Type,user.getUserType());
+
         long result = db.insert(TBL_USERS,null,cv);
         db.close();
         if(result==-1)
