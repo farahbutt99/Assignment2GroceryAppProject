@@ -85,6 +85,9 @@ public class addproduct extends AppCompatActivity {
                         );
                         productModel.setProduct_Category(prod_Catgry);
                         String result  = db.addProduct(productModel);
+                        p_name.setText("");
+                        p_price.setText("");
+                        p_qty.setText("");
                         Toast.makeText(addproduct.this,result,Toast.LENGTH_LONG).show();
                     }
                 }
