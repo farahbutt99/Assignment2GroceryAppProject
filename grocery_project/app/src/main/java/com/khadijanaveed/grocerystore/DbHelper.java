@@ -84,12 +84,11 @@ public class DbHelper extends SQLiteOpenHelper
         else
             return "Signup Scuccesfull";
     }
-    
-    //Get COMPLETE record of USER
+
+    //Get COMPLETE record of a USER
     public UserModel getUser(String userName, String passwd)
     {
         UserModel user = null;
-        //String query = "SELECT * FROM " + TBL_USERS+ " WHERE " +USER_NAME+"='" +userName+ "' AND "+USER_PASWD+ "='"+ passwd+"'";
         String query = "SELECT * FROM " + TBL_USERS;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor =db.rawQuery(query,null);
@@ -105,13 +104,16 @@ public class DbHelper extends SQLiteOpenHelper
                     String usremail= cursor.getString(1);
                     Long usrmobNo= cursor.getLong(4);
                     String usrType= cursor.getString(5);
+
                     user =new UserModel(usrId,usremail,usrname,usrpaswd,usrmobNo,usrType);
+
                     cursor.close();
                     db.close();
                     return user;
                 }
             }while (cursor.moveToNext());
         }
+        
         cursor.close();
         db.close();
         return user;
