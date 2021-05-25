@@ -62,33 +62,43 @@ public class addproduct extends AppCompatActivity {
         }
     }
 
-    public void dialogue1(View view) {
+    public void AddProductDialog(View view) {
 
-        String prod_name=p_name.getText().toString();
-        String prod_Catgry="Fruits";
-        Double prod_Qty=Double.parseDouble(p_qty.getText().toString());
-        Double prod_price=Double.parseDouble(p_price.getText().toString());
-
-
-       ProductModel productModel  = new ProductModel(
-               prod_name,
-               "Fruits",
-               prod_Qty,
-               prod_price,
-               ImageToStore
-       );
-       productModel.setProduct_Category(prod_Catgry);
-        String result  = db.addProduct(productModel);
-        Toast.makeText(this,result,Toast.LENGTH_LONG).show();
-
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setMessage("Are you sure you want to add the product?");
-//        builder.setTitle("Add Product");
-//        builder.setCancelable(false);
-//        builder.setPositiveButton("Yes",null);
-//        builder.setNegativeButton("No",null);
-//        AlertDialog alertDialog = builder.create();
-//        alertDialog.show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure you want to add the product?");
+        builder.setTitle("Add Product");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String prod_name=p_name.getText().toString();
+                        String prod_Catgry="Fruits";
+                        Double prod_Qty=Double.parseDouble(p_qty.getText().toString());
+                        Double prod_price=Double.parseDouble(p_price.getText().toString());
+                        ProductModel productModel  = new ProductModel(
+                                prod_name,
+                                "Fruits",
+                                prod_Qty,
+                                prod_price,
+                                ImageToStore
+                        );
+                        productModel.setProduct_Category(prod_Catgry);
+                        String result  = db.addProduct(productModel);
+                        Toast.makeText(addproduct.this,result,Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
+        builder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(addproduct.this, "Not added", Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }
