@@ -17,8 +17,6 @@ import com.google.android.material.navigation.NavigationView;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
-import java.util.Objects;
-
 public class home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 //  for carousel
@@ -60,37 +58,37 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
                 switch (menuItem.getItemId()) {
                     case R.id.fruits:
                         Toast.makeText(getApplicationContext(), "Fruits Clicked", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(home.this, products.class);
+                        Intent intent = new Intent(home.this, fruits.class);
                         startActivity(intent);
                         break;
                     case R.id.vegetables:
                         Toast.makeText(getApplicationContext(), "Vegetables Clicked", Toast.LENGTH_LONG).show();
-                        intent = new Intent(home.this, products.class);
+                        intent = new Intent(home.this, vegetables.class);
                         startActivity(intent);
                         break;
                     case R.id.seafood:
                         Toast.makeText(getApplicationContext(), "Sea food clicked", Toast.LENGTH_LONG).show();
-                        intent = new Intent(home.this, products.class);
+                        intent = new Intent(home.this, seafood.class);
                         startActivity(intent);
                         break;
                     case R.id.grocery:
                         Toast.makeText(getApplicationContext(), "Grocery clicked", Toast.LENGTH_LONG).show();
-                        intent = new Intent(home.this, products.class);
+                        intent = new Intent(home.this, grocery.class);
                         startActivity(intent);
                         break;
                     case R.id.beverages:
                         Toast.makeText(getApplicationContext(), "Beverages clicked", Toast.LENGTH_LONG).show();
-                        intent = new Intent(home.this, products.class);
+                        intent = new Intent(home.this, beverages.class);
                         startActivity(intent);
                         break;
                     case R.id.dairy:
                         Toast.makeText(getApplicationContext(), "dairy clicked", Toast.LENGTH_LONG).show();
-                        intent = new Intent(home.this, products.class);
+                        intent = new Intent(home.this, dairy.class);
                         startActivity(intent);
                         break;
                     case R.id.bakery:
                         Toast.makeText(getApplicationContext(), "bakery clicked", Toast.LENGTH_LONG).show();
-                        intent = new Intent(home.this, products.class);
+                        intent = new Intent(home.this, bakery.class);
                         startActivity(intent);
                         break;
                     case R.id.mycart:
