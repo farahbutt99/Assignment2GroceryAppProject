@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
-        <activity android:name=".deleteproduct"></activity>
+        <activity android:name=".mycart"></activity>
+        <activity android:name=".deleteproduct" />
         <activity android:name=".addproduct" />
         <activity android:name=".viewuser" />
         <activity android:name=".menuofadmin" />
-        <activity android:name=".fruits" />
+        <activity android:name=".products" />
         <activity android:name=".home" />
         <activity android:name=".signup" />
         <activity android:name=".login" />

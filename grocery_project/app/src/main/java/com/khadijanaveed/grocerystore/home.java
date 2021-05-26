@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.synnapps.carouselview.CarouselView;
@@ -52,9 +53,72 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,toolbar,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
 //        for click event of navigation items
-        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.fruits:
+                        Toast.makeText(getApplicationContext(), "Fruits Clicked", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(home.this, products.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.vegetables:
+                        Toast.makeText(getApplicationContext(), "Vegetables Clicked", Toast.LENGTH_LONG).show();
+                        intent = new Intent(home.this, products.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.seafood:
+                        Toast.makeText(getApplicationContext(), "Sea food clicked", Toast.LENGTH_LONG).show();
+                        intent = new Intent(home.this, products.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.grocery:
+                        Toast.makeText(getApplicationContext(), "Grocery clicked", Toast.LENGTH_LONG).show();
+                        intent = new Intent(home.this, products.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.beverages:
+                        Toast.makeText(getApplicationContext(), "Beverages clicked", Toast.LENGTH_LONG).show();
+                        intent = new Intent(home.this, products.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.dairy:
+                        Toast.makeText(getApplicationContext(), "dairy clicked", Toast.LENGTH_LONG).show();
+                        intent = new Intent(home.this, products.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.bakery:
+                        Toast.makeText(getApplicationContext(), "bakery clicked", Toast.LENGTH_LONG).show();
+                        intent = new Intent(home.this, products.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.mycart:
+                        Toast.makeText(getApplicationContext(), "My cart clicked", Toast.LENGTH_LONG).show();
+                        intent = new Intent(home.this, mycart.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.share:
+                        Toast.makeText(getApplicationContext(), "Share clicked", Toast.LENGTH_LONG).show();
+//                        intent = new Intent(home.this, products.class);
+//                        startActivity(intent);
+                        break;
+                    case R.id.signin:
+                        Toast.makeText(getApplicationContext(), "Signin clicked", Toast.LENGTH_LONG).show();
+                        intent = new Intent(home.this, signup.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.logout:
+                        Toast.makeText(getApplicationContext(), "Logout clicked", Toast.LENGTH_LONG).show();
+                        intent = new Intent(home.this, login.class);
+                        startActivity(intent);
+                        break;
+                    default:
+                        return true;
+                }
+                return true;
+            }
+        });
     }
 
     @Override
