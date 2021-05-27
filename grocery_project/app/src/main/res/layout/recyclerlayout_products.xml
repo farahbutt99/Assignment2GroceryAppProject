@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="5dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="#BF9754">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+            <ImageView
+                android:id="@+id/imageProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteX="13dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:srcCompat="@tools:sample/avatars">
+            </ImageView>
+            <TextView
+                android:id="@+id/priceProduct"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                app:layout_constraintStart_toEndOf="@+id/imageProduct"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="Price"
+                android:textColor="@color/black"
+                android:textStyle="bold">
+            </TextView>
+            <TextView
+                android:id="@+id/QtyProduct"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                app:layout_constraintStart_toEndOf="@+id/imageProduct"
+                app:layout_constraintTop_toBottomOf="@+id/priceProduct"
+                android:text="Stock"
+                android:textColor="@color/black"
+                android:textStyle="bold">
+            </TextView>
+            <Spinner
+                android:id="@+id/chooseQty"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal ="true"
+                app:layout_constraintStart_toEndOf="@+id/imageProduct"
+                app:layout_constraintTop_toBottomOf="@+id/QtyProduct">
+            </Spinner>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
