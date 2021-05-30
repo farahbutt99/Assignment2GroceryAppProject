@@ -19,11 +19,17 @@ public class ProductModel {
         Product_Price = product_Price;
         Product_Image = product_Image;
     }
-
     public ProductModel(String product_Name, String product_Category, Double product_Qty, Double product_Price, Bitmap product_Image) {
         Product_Name = product_Name;
         Product_Category = product_Category;
         Product_Qty = product_Qty;
+        Product_Price = product_Price;
+        Product_Image = product_Image;
+    }
+
+    public ProductModel(int product_ID,String product_Name, Double product_Price, Bitmap product_Image) {
+        Product_ID = product_ID;
+        Product_Name = product_Name;
         Product_Price = product_Price;
         Product_Image = product_Image;
     }

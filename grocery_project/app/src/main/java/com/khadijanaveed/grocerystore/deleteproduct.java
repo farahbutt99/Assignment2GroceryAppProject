@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class deleteproduct extends AppCompatActivity {
     EditText deleteProdName;
     DbHelper db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.icu.lang.UScript;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import androidx.annotation.Nullable;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class DbHelper extends SQLiteOpenHelper
 {
@@ -38,8 +40,6 @@ public class DbHelper extends SQLiteOpenHelper
     private static final String dbname="groceryStoreDBNew.db";
     private ByteArrayOutputStream byteArrayOutputStream;
     private byte[] imageinbytes;
-    //private static final int DATABASE_VERSION = 2;
-
 
     public DbHelper(Context context) {
         super(context, dbname, null,2);
@@ -179,5 +179,36 @@ public class DbHelper extends SQLiteOpenHelper
         db.close();
         if(result==0) { return "Product not Deleted"; }
         else { return "Product Deleted"; }
+    }
+
+    //Get Product details
+    public ArrayList<ProductModel> getProductsByCategory(String category)
+    {
+        ArrayList<ProductModel> myList= new ArrayList<ProductModel>();
+
+        String query = "SELECT "+Prod_ID+","+Prod_Name+","+Prod_Price+","+Prod_Img+","+Prod_Category+" FROM "+TBL_PRODUCTS;
+        SQLiteDatabase DB = this.getReadableDatabase();
+
+        Cursor cursor = DB.rawQuery(query,null);
+        if(cursor.moveToFirst())
+        {
+            do{
+                int prodId= cursor.getInt(0);
+                String prodName= cursor.getString(1);
+                Double prodPrice= cursor.getDouble(2);
+                byte[] prodImginbytes= cursor.getBlob(3);
+                Bitmap prodImg = BitmapFactory.decodeByteArray(prodImginbytes,0,prodImginbytes.length);
+                String prodCatgry= cursor.getString(4);
+
+                if(prodCatgry.equals(category))
+                {
+                    ProductModel product = new ProductModel(prodId,prodName,prodPrice,prodImg);
+                    myList.add(product);
+                }
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        DB.close();
+        return myList;
     }
 }

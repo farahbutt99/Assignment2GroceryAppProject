@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -12,15 +13,19 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.IOException;
 
 public class addproduct extends AppCompatActivity {
     EditText p_name,p_price,p_qty;
+    Spinner addCategrySpinner;
     ImageView imageView;
     Uri ImageFilePath;
     Bitmap ImageToStore;
@@ -37,9 +42,16 @@ public class addproduct extends AppCompatActivity {
         p_price = findViewById(R.id.price);
         p_qty = findViewById(R.id.quantity);
         button = findViewById(R.id.add);
+        addCategrySpinner= findViewById(R.id.chooseCategorySpinner);
         db =new DbHelper(this);
+
+        //Add drop down menu (Spinner) to get category
+        ArrayAdapter<String> myAdapter=new ArrayAdapter<String>(addproduct.this, android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.Categories));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        addCategrySpinner.setAdapter(myAdapter);
     }
-// it is used to choose image from gallery
+
+    // it is used to choose image from gallery
     public void chooseimage(View view) {
         Intent intent = new Intent().setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -62,7 +74,9 @@ public class addproduct extends AppCompatActivity {
         }
     }
 
-    public void AddProductDialog(View view) {
+    //Dialog Box to verify that the product add or not?
+    public void AddProductDialog(View view)
+    {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Are you sure you want to add the product?");
@@ -73,12 +87,12 @@ public class addproduct extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String prod_name=p_name.getText().toString();
-                        String prod_Catgry="Fruits";
+                        String prod_Catgry=addCategrySpinner.getSelectedItem().toString();
                         Double prod_Qty=Double.parseDouble(p_qty.getText().toString());
                         Double prod_price=Double.parseDouble(p_price.getText().toString());
                         ProductModel productModel  = new ProductModel(
                                 prod_name,
-                                "Fruits",
+                                prod_Catgry,
                                 prod_Qty,
                                 prod_price,
                                 ImageToStore
@@ -103,5 +117,4 @@ public class addproduct extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
-
 }

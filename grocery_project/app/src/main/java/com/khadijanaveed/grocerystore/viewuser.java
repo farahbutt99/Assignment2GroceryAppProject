@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class viewuser extends AppCompatActivity {
-//    List<UserModel> allUsers;
     RecyclerView recyclerView;
     RecyclerViewAdapter adapterForRecycler;
 

@@ -19,7 +19,7 @@
             android:padding="10dp">
             <ImageView
                 android:id="@+id/imageProduct"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="13dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -29,8 +29,9 @@
             </ImageView>
             <TextView
                 android:id="@+id/priceProduct"
-                android:layout_width="70dp"
+                android:layout_width="50dp"
                 android:layout_height="30dp"
+                android:layout_margin="10dp"
                 app:layout_constraintStart_toEndOf="@+id/imageProduct"
                 app:layout_constraintTop_toTopOf="parent"
                 android:text="Price"
@@ -38,23 +39,47 @@
                 android:textStyle="bold">
             </TextView>
             <TextView
-                android:id="@+id/QtyProduct"
-                android:layout_width="70dp"
+                android:id="@+id/priceProductText"
+                android:layout_width="50dp"
                 android:layout_height="30dp"
-                app:layout_constraintStart_toEndOf="@+id/imageProduct"
-                app:layout_constraintTop_toBottomOf="@+id/priceProduct"
-                android:text="Stock"
+                android:layout_margin="10dp"
+                app:layout_constraintStart_toEndOf="@+id/priceProduct"
+                app:layout_constraintTop_toTopOf="parent"
                 android:textColor="@color/black"
                 android:textStyle="bold">
             </TextView>
-            <Spinner
-                android:id="@+id/chooseQty"
-                android:layout_width="70dp"
+            <TextView
+                android:id="@+id/QtyProduct"
+                android:layout_width="50dp"
                 android:layout_height="30dp"
+                android:layout_margin="10dp"
+                app:layout_constraintStart_toEndOf="@+id/imageProduct"
+                app:layout_constraintTop_toBottomOf="@id/priceProduct"
+                android:text="Qty"
+                android:textColor="@color/black"
+                android:textStyle="bold">
+            </TextView>
+            <EditText
+                android:id="@+id/QtyProductText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Enter Qunatity"
+                app:layout_constraintStart_toEndOf="@+id/QtyProduct"
+                app:layout_constraintTop_toBottomOf="@id/priceProductText"
+                android:textColor="@color/black"
+                android:textSize="10dp"
+                android:textStyle="bold">
+            </EditText>
+            <Spinner
+                android:id="@+id/chooseQtySpinner"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal ="true"
-                app:layout_constraintStart_toEndOf="@+id/imageProduct"
-                app:layout_constraintTop_toBottomOf="@+id/QtyProduct">
+                app:layout_constraintStart_toEndOf="@id/QtyProductText"
+                app:layout_constraintTop_toBottomOf="@id/priceProductText">
             </Spinner>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

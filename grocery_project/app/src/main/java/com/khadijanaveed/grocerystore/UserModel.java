@@ -10,7 +10,6 @@ public class UserModel {
 
 
     public UserModel(String emailID, String userName, String paswd, long mobileNo, String userType) {
-      //  this.userID = userID;
         this.emailID = emailID;
         this.userName = userName;
         this.paswd = paswd;
@@ -18,7 +17,7 @@ public class UserModel {
         this.userType=userType;
     }
     public UserModel(int userId,String emailID, String userName, String paswd, long mobileNo,String userType) {
-        this.userID = userID;
+        this.userID = userId;
         this.emailID = emailID;
         this.userName = userName;
         this.paswd = paswd;

@@ -16,7 +16,6 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>
 {
-//    List<UserModel> usersList;
     ArrayList<UserModel> usersList;
     public RecyclerViewAdapter(ArrayList<UserModel> usersList)
     {
@@ -47,7 +46,8 @@ public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) 
         return usersList.size();
     }
 
-public class MyViewHolder extends RecyclerView.ViewHolder {
+public class MyViewHolder extends RecyclerView.ViewHolder
+{
     TextView name, email,phoneNo;
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);

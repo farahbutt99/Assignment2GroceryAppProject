@@ -40,7 +40,6 @@ public class login extends AppCompatActivity {
         UserModel user= db.getUser(usrName,pswd);
         if(user != null)
         {
-           // Toast.makeText(this,user.getUserType(),Toast.LENGTH_LONG).show();
             if(user.getUserType().equals("Admin"))
             {
                 Intent intent = new Intent(login.this,menuofadmin.class);
@@ -60,7 +59,5 @@ public class login extends AppCompatActivity {
         {
             Toast.makeText(this,"Not FOund",Toast.LENGTH_LONG).show();
         }
-
-
     }
 }

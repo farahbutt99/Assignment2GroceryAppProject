@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/logo3"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -21,7 +21,7 @@
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="385dp"
-        android:layout_height="400dp"
+        android:layout_height="450dp"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:orientation="horizontal"
@@ -115,6 +115,25 @@
                     android:textColor="#fff"
                     android:textColorHint="#fff"
                     android:textSize="18sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+                <Spinner
+                    android:id="@+id/chooseCategorySpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal ="true"
+                    android:letterSpacing="0.1"
+
+                    android:textColor="#fff"
+                    android:textColorHint="#fff"
+                    android:textSize="18sp">
+               </Spinner>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

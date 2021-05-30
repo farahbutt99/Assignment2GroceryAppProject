@@ -2,4 +2,19 @@
     <string name="app_name">grocerystore</string>
     <string name="open"> Open Drawer Navigation </string>
     <string name="close"> Close Drawer Navigation </string>
+    <string-array name="Categories">
+        <item>Fruits</item>
+        <item>Vegetables</item>
+        <item>Seafood</item>
+        <item>Grocery</item>
+        <item>Beverages</item>
+        <item>Dairy</item>
+        <item>Bakery</item>
+    </string-array>
+    <string-array name="Quantities">
+        <item>1000g</item>
+        <item>500g</item>
+        <item>250g</item>
+        <item>100g</item>
+    </string-array>
 </resources>
