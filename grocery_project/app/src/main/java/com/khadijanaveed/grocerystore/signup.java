@@ -19,7 +19,6 @@ public class signup extends AppCompatActivity {
         t2 = findViewById(R.id.username);
         t3 = findViewById(R.id.password);
         t4 = findViewById(R.id.number);
-
     }
 
     public void login(View view) {

@@ -41,7 +41,7 @@ public class fruits extends AppCompatActivity {
             {
                 Intent intent=new Intent(fruits.this,selectQty.class);
 
-                //intent.putExtra("rce",productsList.get(position).getProduct_Price());
+                intent.putExtra("rce",productsList.get(position).getProduct_Price());
                 startActivity(intent);
             }
         };
